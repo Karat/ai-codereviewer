@@ -9,6 +9,9 @@ const GITHUB_TOKEN: string = core.getInput("GITHUB_TOKEN");
 const OPENAI_API_KEY: string = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
 
+console.log('checking...')
+console.log('is GITHUB_TOKEN undefined or empty?', GITHUB_TOKEN === undefined || GITHUB_TOKEN === '')
+
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 console.log(JSON.stringify(octokit, null, 2));
