@@ -9,14 +9,14 @@ const GITHUB_TOKEN: string = core.getInput("GITHUB_TOKEN");
 const OPENAI_API_KEY: string = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
 
-core.debug('checking...');
+core.info('checking...');
 
-core.debug('checking...')
-core.debug(`is GITHUB_TOKEN undefined or empty? ${GITHUB_TOKEN === undefined || GITHUB_TOKEN === ''}`)
+core.info('checking...')
+core.info(`is GITHUB_TOKEN undefined or empty? ${GITHUB_TOKEN === undefined || GITHUB_TOKEN === ''}`)
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
-core.debug(JSON.stringify(octokit, null, 2));
+core.info(JSON.stringify(octokit, null, 2));
 
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
@@ -36,7 +36,7 @@ async function getPRDetails(): Promise<PRDetails> {
   const { repository, number } = JSON.parse(
     readFileSync(process.env.GITHUB_EVENT_PATH || "", "utf8")
   );
-  core.debug('starting...');
+  core.info('starting...');
   const prResponse = await octokit.pulls.get({
     owner: repository.owner.login,
     repo: repository.name,
