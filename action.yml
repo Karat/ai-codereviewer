@@ -16,8 +16,12 @@ inputs:
     required: false
     default: ""
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: "composite"
+  steps:
+    - run: yarn tsc
+      shell: bash
+    - run: node dist/index.js
+      shell: bash
 branding:
   icon: "aperture"
   color: "green"
