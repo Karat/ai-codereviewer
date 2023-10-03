@@ -20,10 +20,13 @@ runs:
   steps:
     - run: yarn
       shell: bash
+      working-directory: ${{ github.action_path }}
     - run: tsc
       shell: bash
+      working-directory: ${{ github.action_path }}
     - run: node dist/index.js
       shell: bash
+      working-directory: ${{ github.action_path }}
 branding:
   icon: "aperture"
   color: "green"
