@@ -18,7 +18,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: yarn tsc
+    - run: tsc
       shell: bash
     - run: node dist/index.js
       shell: bash
