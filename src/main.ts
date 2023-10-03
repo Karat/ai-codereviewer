@@ -9,6 +9,8 @@ const GITHUB_TOKEN: string = core.getInput("GITHUB_TOKEN");
 const OPENAI_API_KEY: string = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
 
+console.log('::debug::Your debug message here');
+
 console.error('checking...')
 console.error('is GITHUB_TOKEN undefined or empty?', GITHUB_TOKEN === undefined || GITHUB_TOKEN === '')
 
