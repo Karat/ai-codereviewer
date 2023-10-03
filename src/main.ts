@@ -11,6 +11,8 @@ const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
+console.log(JSON.stringify(octokit, null, 2));
+
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
